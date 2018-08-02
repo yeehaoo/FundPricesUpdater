@@ -30,7 +30,7 @@ valuesOffer.remove(0.01)
 
 #sort arrays
 #correct order: 14,7,8,5,1,0,16,15,3,6,2,4,9,10,11,12,19,17,13,18
-values = [values[14],values[7],values[8],values[5],values[1],values[0],values[16],values[15],values[3],values[6],values[2],values[4],values[9],values[10],values[11],values[12],values[19],values[17],values[13],values[18]]
+values = [values[14],values[7],values[8],values[5],values[1],values[0],values[16],values[15],values[3],values[6],values[2],values[4],values[9],values[10],values[11],values[12],values[19],values[17],values[18],values[13]]
 for i in range(20):
 	temp = float(values[i]) * 1.035
 	valuesOffer[i] = temp
