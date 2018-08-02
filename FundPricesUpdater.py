@@ -6,8 +6,8 @@ import datetime
 from xlutils.copy import copy
 
 #change file names as desired
-htmlFileName = 'web2.html'
-workbookName = 'fundprices14.xls'
+htmlFileName = 'webpage.html'
+workbookName = 'toUpdate.xls'
 
 #parsing the html of the webpage
 file = open(htmlFileName)
@@ -30,8 +30,8 @@ valuesOffer.remove(0.01)
 
 #sort arrays
 #correct order: 14,7,8,5,1,0,16,15,3,6,2,4,9,10,11,12,19,17,13,18
-values = [values[14],values[7],values[8],values[5],values[1],values[0],values[16],values[15],values[3],values[6],values[2],values[4],values[9],values[10],values[11],values[12],values[19],values[17],values[18],values[13]]
-for i in range(20):
+values = [values[14],values[7],values[8],values[5],values[1],values[0],values[16],values[15],values[3],values[6],values[2],values[4],values[9],values[10],values[11],values[12],values[19],values[17],values[18],values[20],values[13]]
+for i in range(21):
 	temp = float(values[i]) * 1.035
 	valuesOffer[i] = temp
 
@@ -53,8 +53,8 @@ w_sheet.write(maxRowNo,0,todaysDate)
 
 #writing values to sheet
 #rows for values array: 5,7,9,11,13,15,17,21,23,25,27,29,34,38,40,42,44,46,48,50
-rowsToWrite = [5,7,9,11,13,15,17,21,23,25,27,29,34,38,40,42,44,46,48,50]
-for i in range(20):
+rowsToWrite = [5,7,9,11,13,15,17,21,23,25,27,29,34,38,40,42,44,46,48,50,52]
+for i in range(21):
 	w_sheet.write(maxRowNo,rowsToWrite[i],values[i])
 	w_sheet.write(maxRowNo,rowsToWrite[i] + 1,valuesOffer[i])
 
