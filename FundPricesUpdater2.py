@@ -1,3 +1,15 @@
+"""
+17 April 2021
+github.com/yeehaoo/FundPricesUpdater
+
+Target machine now supports python, and target website has changed, prompting a new version of the FundPricesUpdater. Old version left for posterity
+Now includes stock index scraping, and automating web scraping (html file had to be manually saved in the previous version of FundPricesUpdater)
+
+Dependencies: bs4, openpyxl, yfinance
+
+Instructions: python3 FundPricesUpdater2.py
+"""
+
 import bs4
 import requests
 import openpyxl
