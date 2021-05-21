@@ -8,8 +8,10 @@ Now includes stock index scraping, and automating web scraping (html file had to
 Dependencies: bs4, openpyxl, yfinance
 
 Instructions: python3 FundPricesUpdater2.py
-"""
 
+21 May 2021
+Added calculation of changes to market indices
+"""
 import bs4
 import requests
 import openpyxl
@@ -63,9 +65,10 @@ print(c)
 print("requesting stock data")
 stock_indexes = ["^STI", "^IXIC", "^GSPC", "^DJI"]
 for index in stock_indexes:
-	sorted_list.append(str(yfinance.Ticker(index).info["regularMarketPrice"]))
+	stock_value = yfinance.Ticker(index).info["regularMarketPrice"]
+	sorted_list.append(str(stock_value))
 	sorted_list.append("")
-	print(index, yfinance.Ticker(index).info["regularMarketPrice"])
+	print(index, stock_value)
 print(c)
 
 #load workbook (ws stands for worksheet)
@@ -77,8 +80,16 @@ print(c)
 
 #write values
 print("writing values")
+pause_columns = [55, 57, 59, 61]
 for i in range(len(sorted_list)):
-	ws.cell(row=row_count, column=i+1, value=sorted_list[i])
+	if i in pause_columns:
+		value_today = float(sorted_list[i-1])
+		value_yesterday = float(ws.cell(row=row_count-1, column=i).value)
+		calculated_difference = value_today - value_yesterday
+		ws.cell(row=row_count, column=i+1, value=str(calculated_difference))
+	else:
+		ws.cell(row=row_count, column=i+1, value=sorted_list[i])
+
 print(c)
 
 #save
