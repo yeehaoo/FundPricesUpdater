@@ -15,3 +15,5 @@ How to Use (Instructions for Mozilla Firefox):
 Final update pushed on 02.08.2018. Project will no longer be updated as target machine does not support Python.
 
 April 2021 UPDATE: Target machine now supports Python. Website to be scraped has also changed, prompting a new version of FundPricesUpdater. Old version is left up for posterity. Now supports stock index scraping, and automatic web scraping (html file had to be saved manually in previous version of FundPricesUpdater
+
+21 May 2021: Added calculation of daily trend for market indices
