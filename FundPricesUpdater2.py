@@ -11,6 +11,9 @@ Instructions: python3 FundPricesUpdater2.py
 
 21 May 2021
 Added calculation of changes to market indices
+
+28 May 2021
+Added rounding of calculated values to 2 decimal places
 """
 import bs4
 import requests
@@ -86,7 +89,7 @@ for i in range(len(sorted_list)):
 		value_today = float(sorted_list[i-1])
 		value_yesterday = float(ws.cell(row=row_count-1, column=i).value)
 		calculated_difference = value_today - value_yesterday
-		ws.cell(row=row_count, column=i+1, value=str(calculated_difference))
+		ws.cell(row=row_count, column=i+1, value=str(round(calculated_difference,2)))
 	else:
 		ws.cell(row=row_count, column=i+1, value=sorted_list[i])
 
